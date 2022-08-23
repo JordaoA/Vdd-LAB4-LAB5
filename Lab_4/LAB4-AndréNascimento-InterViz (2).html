@@ -1,0 +1,85 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=dataset-simple0&lang=js&renderer=svg&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQAKATsAOa04DOLAx8LACY4-s4AtiBzQAFlyGwyOWgGMIC4C1gAxALctFygHSUANEXQsArgCMwZCrBr0mrDl178WQkeK4AKAGoBDWhC-0NxOfAAMsAB-sACMYQCU0oLSpLIKSioAZpraKtwmtEGWsL4qviZYpfo8EABuENwNyrAiWFyQIKEpaYpQeobEsLiZ1pTDYJREAL4DQzgMotwESHMjVAEMYhOwM0RgwMBYHcu76Ny-YKU41qiDLMAFcviwANpGxC-UIPT5chPVlAAwv5GsADDZqLJoKVwTQTKR_AZKABRYQFQq0SgAXVmg0-AGUhEFfLFwQAmaoU2BUgDMOPe6AJROh1PJ1RplPZ9MGjMohMExNgNPBHKFlJ0AFZ9DTJdyeUyBSyACwinSi0VkyXs2W4j585kkiWq9VasVCnQADjleP1ipJADZVVLzc7RUrrXr-YKAOxO7WutXVd3vLHTWakACCpAgLGWGAAniIqHILvNgLR45QdrN41GYydZkRXAFWAQ3oMVhBLIJ8WB47hlnJDumqABib3epVkgAiEcopx5daTNjMiJmsHelertfrzyQTbatDbACEaT3Ab6B4Mh89KKPMdmJxXYFWhDOG8gFy2bK2LcuYt3u6p-7r0DuqPus-PJyfp3WL_OzZLje3rdjEqgRgAnC-DIJsOe6IjsIYoFMADcQA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'svg',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: 'Progressão de desempenho em exercicios Físicos.',
+    subtext: 'Progressão de desempenho (Variando de 0 ~ 10) em exercicios físicos durante as aulas, divididos pelo tipo de exercicio.',
+    left: 'left'
+  },
+  legend: { left: 'right' },
+  tooltip: {},
+  dataset: {
+    source: [
+      ['product', 'Cardio', 'Pernas', 'Puxar','Empurrar'],
+      ['Semana 1', 2, 2, 2, 3],
+      ['Semana 2', 2, 3, 2, 3],
+      ['Semana 3', 3, 3, 2.5,3.5],
+      ['Semana 4', 3.3, 3, 2.5, 3.5],
+      ['Semana 5', 3.3, 3.5, 3, 3.8],
+      ['Semana 6', 3.5, 3.5, 3, 4],
+      ['Semana 7', 3.5, 3.5, 3.3, 4]
+    ]
+  },
+  xAxis: { type: 'category' },
+  yAxis: {},
+  
+  series: [
+    { itemStyle: {color: '#7742DA'},
+      type: 'bar'}, 
+    { itemStyle: {color: '#B32DC7'},
+      type: 'bar' }, 
+    { itemStyle: {color: '#8B1DDF'},
+      type: 'bar' }, 
+    { itemStyle: {color: '#7D1FA9'},
+      type: 'bar' }
+    ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=multiple-y-axis&code=MYewdgzgLgBKA2IBOEYF4YG0DkBiAHAKwDMA7GdgDQx4AsxxAbIY9gLoDcAUCAA5QBLcOhgBvLjBiCo8AKYAuMRMlTZADyiLsAOQBfAW1lIQMACayYAQ2ADzYKLNSWAl0lkhUF_cgepeyM2dgS1NLADoqZUkIAFcAIwcNLQAqABEQjzgQOSgMz3s3GABGAE4igAYYCwAmctKwgB0wZIBVCAsTCGBjeHgzE28Y9pheSyRLGAAvEBB9alGIYYGQIYswCbix8ZGxiZAEoxh9SwFUc1z4AAtHGAh9wszQ0w9qYHgBAEcYtYm5AHNZGBQjttgAzATwKDjJAwR55bDKAC-lGUCGQijRKBRkigM0hAl4ilEyOUfyQtiJURg5L-l00NEIAFJIiopHwtBVmUjsWzsnEQGpKazQbJLFAYm4hayzGLLAA1ASyADuRNulxAKqkSG-1DcIQA8mB4ABPRSgyzwYYk6XUxy4yViNUaxRQ74wa3SiCWABusgAghAAJLHAGqiDqzWuiyIqkxyQe_6A0xSnHsmikZk8yShXKKHB6QzGMwWay2QG-Kg0AtGEzmI4-RzsbnKNR-tSnPNU8Q2qDG3gKGjBBx_ZDGlnS9aGLSpIIhSwQcesyeyAAyICHQjAWmA5aMi5Uy4A4pZCTBiIQsyoc5Y89hShVK3eSrV9zaVE_iOVH6VaF_L2_JCfQg_xoUpGD_KkANAkpSBAp98AgqDWSfEo4NqcpEKQwDagfNhY2UNgeWvAAtGZ9E7Vlu2lXt-y0ARIDLBFWTjGBCOUY02w7LAu0gqQ-wHbBvQtb5XxgZctGrIs61LOwK3_EYPAEQRwC0ORQSgUSLQEP4wAAFQEYAAGsIBdbVZHkyx2wgFd6IHKibXDZ0tR1XjJHeMBZAAZV7OQUzfTEMWyZAIEwco8IAljmMvD1JB4nt-K0IT4BE-TxKrAwa2LeskDk3j_AgJTNy0Gk6U094dP0oyTOc8zeMs04bI8vzWUcyMzPktzbO841fKUJCAqyRAUEwIpwrfSKVBi90UQImboiMRVqswOKJ0sKd0sLWsSxsWTG3kmiBM2JBROvPMigvM98GoIpSCus9YOoWhaDuwgimIR7iBKagmFoR7CAu2hgOoapSjG-NL3sg81oEyStuy3L4tomgjtEjirMDIF1EUIp5NOrBqgemBqhKX7il_O7GFoSnqBJ6pSfO8pqgum6bsYa6yDKdnifKa7ynPHGYEYIoELB90CK4RFuFASBYGmWZPIESYLAwRhuH0Y0AGFLjGKAwnAAAKbA3gMwzK1BGIwGAZSwBgfXRnGfQIAASj6rJIGyWQwkQP59evTiQoAWTFS4wmONQ7d2R2wmvDHzDUGAAFopjIhWlZgAB6InqHKJ22Cd7hJHVrWdej05RigYBLj9K3N31yGDq0EiyP3aAdblYSBz9qzMCDqAQ7DiOHYgaPZVj9RE-T-XFYsTPqmz3PLyTdvkoUXiu9OHvg9D-jB7W4eY8x-OAGpJ_0VOZ6zmVci9wE_j7ieilzpF84l_OgA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const colors = ['#853737', '#433656'];
+option = {
+  title: {
+    text: 'Número de acidentes aéreos e mortes por década.',
+    subtext: '*Dados coletados entre 1910 e 2019.\n*Use o scroll do mouse para zoom, passe o mouse na barra para obter mais detalhes sobre os dados, clique na legenda para filtrar os dados'
+  },
+  color: colors,
+  tooltip: {},
+  grid: {
+    right: '5%',
+    top: '10%'
+  },
+  toolbox: {
+    feature: {
+      dataView: { show: true, readOnly: false },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  legend: {
+    top: '7%',
+    data: ['Número de acidentes', 'Número de mortes']
+  },
+  xAxis: [
+    {
+      type: 'category',
+      name: 'Décadas',
+      nameLocation: 'center',
+      nameGap: 35,
+      data: ['1910', '1920',
+             '1930', '1940',
+             '1950', '1960',
+             '1970', '1980',
+             '1990', '2000',
+             '2010']
+    }
+  ],
+  dataZoom: [
+    {
+      type: 'inside'
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: 'Número de acidentes',
+      position: 'left',
+      alignTicks: true,
+      axisLine: {
+        show: true,
+        lineStyle: {
+          color: colors[0]
+        }
+      },
+    },
+    
+    {
+      type: 'value',
+      name: 'Número de mortes',
+      position: 'right',
+      alignTicks: true,
+      axisLine: {
+        show: true,
+        lineStyle: {
+          color: colors[1]
+        }
+      },
+    },
+
+  ],
+
+  series: [
+    {
+      name: 'Número de acidentes',
+      type: 'bar',
+      data: [15, 38, 178, 370, 448, 513, 439, 364, 455, 450, 219]
+    },
+    {
+      name: 'Número de mortes',
+      type: 'bar',
+      yAxisIndex: 1,
+      data: [270, 294, 1408, 6464, 9424, 15025, 17176, 13791, 13290, 10351, 6180]
+    }
+  ]
+};
+const zoomSize = 6;
+myChart.on('click', function (params) {
+  console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+  myChart.dispatchAction({
+    type: 'dataZoom',
+    startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+    endValue:
+      dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+  });
+});
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
